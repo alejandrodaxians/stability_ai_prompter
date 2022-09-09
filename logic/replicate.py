@@ -12,7 +12,7 @@ class StabilityAI:
     def get_prediction_url(self):
         print("Write the prompt for your image:")
         prompt = input()
-        logging.info(f"Prompt: {prompt}")
+        logging.info(f'Prompt: "{prompt}"')
         return self.model.predict(prompt=prompt)
 
     def log_output_url(self):

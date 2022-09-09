@@ -3,3 +3,5 @@ __pycache__
 properties.py
 predictions.log
 images
+.flake8
+.vscode

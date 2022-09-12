@@ -1,11 +1,7 @@
 import requests
 import re
 
-# from config.properties import PROMPT_REGEX, URL_REGEX
-
-PROMPT_REGEX = "(?<=\")(.*?)(?=\")"
-
-URL_REGEX = "(?<=')(.*?)(?=')"
+from config.properties import URL_REGEX
 
 
 class Download:
@@ -30,12 +26,10 @@ class Download:
 
     def download_imgs(self):
         urls_list = self.filter_regex(URL_REGEX)
-        # names_list = self.filter_regex(PROMPT_REGEX)
+        counter = 0
         for url in urls_list:
+            counter += 1
+            img_name = "./images/" + str(counter) + ".jpg"
             img_data = requests.get(url).content
-            with open("./images/image.jpg", 'wb') as handler:
+            with open(img_name, 'wb') as handler:
                 handler.write(img_data)
-
-
-if __name__ == "__main__":
-    Download.download_imgs()

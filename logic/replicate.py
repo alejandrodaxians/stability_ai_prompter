@@ -1,7 +1,7 @@
 import replicate
 import logging
 
-from config.properties import REPLICATE_API_TOKEN
+from config.properties_token import REPLICATE_API_TOKEN
 
 
 class StabilityAI:

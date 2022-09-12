@@ -1,6 +1,6 @@
 virtual_env
 __pycache__
-properties.py
+properties_token.py
 predictions.log
 images
 .flake8

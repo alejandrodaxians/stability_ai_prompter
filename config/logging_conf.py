@@ -1,7 +1,14 @@
 import logging
 
 
-def config_logs():
+def config_logs() -> None:
+    """
+    Define the configuration for every log used by this program.
+
+    **params:** None
+
+    **returns:** None
+    """
     logging.basicConfig(filename="predictions.log",
                         encoding='utf-8',
                         level=logging.INFO,

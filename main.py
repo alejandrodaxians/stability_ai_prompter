@@ -11,6 +11,4 @@ rename = Rename()
 
 if __name__ == "__main__":
     config_logs()
-    stability.log_output_url()
-    download.download_imgs()
-    rename.rename_file()
+    download.download_img()

@@ -2,6 +2,6 @@ virtual_env
 __pycache__
 properties_token.py
 predictions.log
-images
 .flake8
 .vscode
+*.jpg

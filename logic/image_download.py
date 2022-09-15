@@ -4,6 +4,7 @@ import re
 
 from config.properties import URL_REGEX
 from logic.replicate import StabilityAI
+from config.time_decorator import check_runtime
 
 stability = StabilityAI()
 
@@ -26,6 +27,7 @@ class Download:
         regex_match = re.search(URL_REGEX, url)
         return regex_match.group(0)
 
+    @check_runtime
     def download_img(self) -> None:
         """
         Downloads every image hosted on the valid urls that it

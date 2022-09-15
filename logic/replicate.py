@@ -9,22 +9,34 @@ class StabilityAI:
     def __init__(self):
         self.client = replicate.Client(api_token=REPLICATE_API_TOKEN)
         self.model = self.client.models.get("stability-ai/stable-diffusion")
+        self.prompt = ''
 
-    def get_prediction_url(self) -> Any | Iterator:
+    def get_prompt(self) -> str:
+        """
+        Takes the user input and returns it.
+
+        **params**: None
+
+        **returns**: String with the user's prompt.
+        """
+        print("Write the prompt for your image:")
+        self.prompt = input()
+        return self.prompt
+
+    def get_prediction(self) -> Any | Iterator:
         """
         Takes the user's input to give a prompt to the prediction model.
 
         **params**: None
 
-        **returns**: The raw image url returned by the prediction model after passing
+        **returns**: The raw object returned by the prediction model after passing
         it the prompt.
         """
-        print("Write the prompt for your image:")
-        prompt = input()
+        prompt = self.get_prompt()
         logging.info(f'Prompt: "{prompt}"')
-        return self.model.predict(prompt=prompt)
+        return self.model.predict(prompt=prompt, width=1024, height=768, num_inference_steps=300)
 
-    def log_output_url(self) -> None:
+    def get_output_url(self) -> None:
         """
         Logs the the raw url object returned by get_prediction_url().
 
@@ -32,6 +44,7 @@ class StabilityAI:
 
         **returns**: None
         """
-        output = self.get_prediction_url(self)
+        output = self.get_prediction()
         logging.info(f"Image URL: {output}")
         logging.info("---")
+        return output

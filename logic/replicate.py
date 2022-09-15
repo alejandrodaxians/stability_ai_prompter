@@ -1,5 +1,5 @@
 from typing import Any, Iterator
-import replicate
+from replicate import Client
 import logging
 
 from config.properties_token import REPLICATE_API_TOKEN
@@ -7,7 +7,7 @@ from config.properties_token import REPLICATE_API_TOKEN
 
 class StabilityAI:
     def __init__(self):
-        self.client = replicate.Client(api_token=REPLICATE_API_TOKEN)
+        self.client = Client(api_token=REPLICATE_API_TOKEN)
         self.model = self.client.models.get("stability-ai/stable-diffusion")
         self.prompt = ''
 

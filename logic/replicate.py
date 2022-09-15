@@ -34,7 +34,7 @@ class StabilityAI:
         """
         prompt = self.get_prompt()
         logging.info(f'Prompt: "{prompt}"')
-        return self.model.predict(prompt=prompt)
+        return self.model.predict(prompt=prompt, width=1024, height=768, num_inference_steps=300)
 
     def get_output_url(self) -> None:
         """
